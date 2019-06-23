@@ -1,16 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const routeModels_1 = require("./routeModels");
+const appolo_1 = require("appolo");
 exports.CrudRoutesDefaults = {
     getAll: {
         active: true,
-        method: 'get',
+        method: appolo_1.Methods.GET,
         validation: [routeModels_1.GetAllModel],
         middleware: [],
         roles: [],
         path: "/"
     }, getById: {
-        method: 'get',
+        method: appolo_1.Methods.GET,
         active: true,
         validation: [routeModels_1.GetOneModel],
         middleware: [],
@@ -18,7 +19,7 @@ exports.CrudRoutesDefaults = {
         path: "/:id"
     },
     create: {
-        method: 'post',
+        method: appolo_1.Methods.POST,
         active: true,
         path: "/",
         validation: [],
@@ -26,7 +27,7 @@ exports.CrudRoutesDefaults = {
         roles: [],
     },
     updateById: {
-        method: "patch",
+        method: appolo_1.Methods.PATCH,
         active: true,
         path: "/:id",
         validation: [],
@@ -34,14 +35,14 @@ exports.CrudRoutesDefaults = {
         roles: [],
     },
     deleteById: {
-        method: "del",
+        method: appolo_1.Methods.DELETE,
         active: true,
         path: "/:id",
         validation: [],
         middleware: [],
         roles: [],
     }, activeById: {
-        method: "patch",
+        method: appolo_1.Methods.PATCH,
         active: true,
         path: "/:id/active",
         validation: [routeModels_1.IsActiveModel],
