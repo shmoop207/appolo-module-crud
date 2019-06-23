@@ -61,4 +61,4 @@ tslib_1.__decorate([
     })
 ], CrudController.prototype, "activeById", null);
 exports.CrudController = CrudController;
-//# sourceMappingURL=baseController.js.map
+//# sourceMappingURL=crudController.js.map

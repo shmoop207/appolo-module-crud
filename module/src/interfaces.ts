@@ -2,7 +2,6 @@ import {IModuleOptions} from "appolo";
 import {GetAllModel, GetOneModel} from "./getAllModel";
 
 export interface IOptions extends IModuleOptions {
-    id?: string,
 }
 
 
