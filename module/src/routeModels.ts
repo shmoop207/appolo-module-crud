@@ -19,7 +19,7 @@ export class GetAllModel<T> {
     public fields?: CrudItemParams<T>;
 
     @param(joi.array().items(validator.object()).optional())
-    public populate?: string | { [index: string]: any }[];
+    public populate?: any[];
 }
 
 
@@ -32,5 +32,12 @@ export class GetOneModel<T> {
     public fields?: CrudItemParams<T>;
 
     @param(joi.array().items(validator.object()).optional())
-    public populate?: string | { [index: string]: any }[];
+    public populate?: any[];
+}
+
+export class IsActiveModel {
+
+    @param(joi.boolean().required())
+    public isActive:boolean
+
 }

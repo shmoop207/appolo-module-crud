@@ -1,5 +1,5 @@
 import {IModuleOptions} from "appolo";
-import {GetAllModel, GetOneModel} from "./getAllModel";
+import {RouteModels, GetOneModel} from "./routeModels";
 
 export interface IOptions extends IModuleOptions {
 }
@@ -10,7 +10,7 @@ export type CrudItemParams<T> = { [J in keyof Partial<T>]: any };
 
 export interface IBaseCrudManager<T> {
     getById(id: string, params: GetOneModel<T>): Promise<T>
-    getAll(params: GetAllModel<T>): Promise<T>
+    getAll(params: RouteModels<T>): Promise<{count:number,results:T[]}>
     create(data: Partial<T>): Promise<T>
     updateById(id: string, data: Partial<T>): Promise<T>
     deleteById(id: string): Promise<void>

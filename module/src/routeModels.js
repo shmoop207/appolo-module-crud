@@ -36,4 +36,10 @@ tslib_1.__decorate([
     validation_1.param(validation_1.joi.array().items(appolo_1.validator.object()).optional())
 ], GetOneModel.prototype, "populate", void 0);
 exports.GetOneModel = GetOneModel;
-//# sourceMappingURL=getAllModel.js.map
+class IsActiveModel {
+}
+tslib_1.__decorate([
+    validation_1.param(validation_1.joi.boolean().required())
+], IsActiveModel.prototype, "isActive", void 0);
+exports.IsActiveModel = IsActiveModel;
+//# sourceMappingURL=routeModels.js.map

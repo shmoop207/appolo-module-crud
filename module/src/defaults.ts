@@ -1,4 +1,4 @@
-import {GetAllModel, GetOneModel} from "./getAllModel";
+import {GetAllModel, GetOneModel, IsActiveModel} from "./routeModels";
 
 export let CrudRoutesDefaults = {
     getAll: {
@@ -43,7 +43,7 @@ export let CrudRoutesDefaults = {
         method: "patch",
         active: true,
         path: "/:id/active",
-        validation: [],
+        validation: [IsActiveModel],
         middleware: [],
         roles: [],
     }

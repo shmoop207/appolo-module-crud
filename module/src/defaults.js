@@ -1,18 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const getAllModel_1 = require("./getAllModel");
+const routeModels_1 = require("./routeModels");
 exports.CrudRoutesDefaults = {
     getAll: {
         active: true,
         method: 'get',
-        validation: [getAllModel_1.GetAllModel],
+        validation: [routeModels_1.GetAllModel],
         middleware: [],
         roles: [],
         path: "/"
     }, getById: {
         method: 'get',
         active: true,
-        validation: [getAllModel_1.GetOneModel],
+        validation: [routeModels_1.GetOneModel],
         middleware: [],
         roles: [],
         path: "/:id"
@@ -44,7 +44,7 @@ exports.CrudRoutesDefaults = {
         method: "patch",
         active: true,
         path: "/:id/active",
-        validation: [],
+        validation: [routeModels_1.IsActiveModel],
         middleware: [],
         roles: [],
     }
