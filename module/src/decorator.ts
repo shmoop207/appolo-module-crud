@@ -13,7 +13,7 @@ const MethodsDic = {
     [Methods.PATCH]: patch
 };
 
-export function crud(routes: CrudRoutes): (fn: Function) => void {
+export function crud(routes: CrudRoutes = {}): (fn: Function) => void {
 
     return function (fn: Function) {
 

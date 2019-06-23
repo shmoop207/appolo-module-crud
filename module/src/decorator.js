@@ -11,7 +11,7 @@ const MethodsDic = {
     [appolo_1.Methods.DELETE]: appolo_1.del,
     [appolo_1.Methods.PATCH]: appolo_1.patch
 };
-function crud(routes) {
+function crud(routes = {}) {
     return function (fn) {
         routes = _.defaultsDeep({}, routes, defaults_1.CrudRoutesDefaults);
         _.forEach(routes, (route, action) => {
