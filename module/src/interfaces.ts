@@ -1,7 +1,11 @@
-import {IModuleOptions, Methods} from "appolo";
+import {IModuleOptions, Methods, IClass, get, post, del, patch} from "appolo";
 import {GetAllModel, GetOneModel} from "./routeModels";
 
 export interface IOptions extends IModuleOptions {
+    routes: CrudRoutes
+    model?: IClass
+    createModel?: IClass
+    updateModel?: IClass
 }
 
 
@@ -20,6 +24,12 @@ export interface IBaseCrudManager<T> {
     deleteById(id: string): Promise<void>
 }
 
+export interface CrudOptions {
+    routes?: CrudRoutes,
+    model?: IClass
+    createModel?: IClass
+    updateModel?: IClass
+}
 
 export interface CrudRoutes {
     getAll?: CrudRoute,
@@ -37,4 +47,16 @@ export interface CrudRoute {
     validation?: any[],
     middleware?: any[],
     roles?: any[],
+}
+
+export const MethodsDic = {
+    [Methods.GET]: get,
+    [Methods.POST]: post,
+    [Methods.DELETE]: del,
+    [Methods.PATCH]: patch
+};
+
+export enum ValidateGroups {
+    Update = "update",
+    Create = "create"
 }

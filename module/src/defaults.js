@@ -13,7 +13,6 @@ exports.CrudRoutesDefaults = {
     }, getById: {
         method: appolo_1.Methods.GET,
         active: true,
-        validation: [routeModels_1.GetOneModel],
         middleware: [],
         roles: [],
         path: "/:id"
@@ -38,14 +37,12 @@ exports.CrudRoutesDefaults = {
         method: appolo_1.Methods.DELETE,
         active: true,
         path: "/:id",
-        validation: [],
         middleware: [],
         roles: [],
     }, activeById: {
         method: appolo_1.Methods.PATCH,
         active: true,
         path: "/:id/active",
-        validation: [routeModels_1.IsActiveModel],
         middleware: [],
         roles: [],
     }

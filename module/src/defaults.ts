@@ -1,4 +1,4 @@
-import {GetAllModel, GetOneModel, IsActiveModel} from "./routeModels";
+import {GetAllModel, GetOneModel,ActiveByIdModel} from "./routeModels";
 import {CrudRoutes} from "./interfaces";
 import {Methods} from 'appolo';
 
@@ -13,7 +13,6 @@ export let CrudRoutesDefaults = <CrudRoutes>{
     }, getById: {
         method: Methods.GET,
         active: true,
-        validation: [GetOneModel],
         middleware: [],
         roles: [],
         path: "/:id"
@@ -38,14 +37,12 @@ export let CrudRoutesDefaults = <CrudRoutes>{
         method: Methods.DELETE,
         active: true,
         path: "/:id",
-        validation: [],
         middleware: [],
         roles: [],
     }, activeById: {
         method: Methods.PATCH,
         active: true,
         path: "/:id/active",
-        validation: [IsActiveModel],
         middleware: [],
         roles: [],
     }

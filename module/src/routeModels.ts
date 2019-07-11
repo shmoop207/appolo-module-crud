@@ -1,43 +1,57 @@
-import {validator} from 'appolo';
-import {param, joi} from '@appolo/validation';
+import {IsString, MinLength, IsNumber, IsOptional, IsArray, Allow, IsBoolean} from "@appolo/validator";
 import {CrudItemParams} from "./interfaces";
 
+
+// import {validator} from 'appolo';
+// import {param, joi} from '@appolo/validation';
+// import {CrudItemParams} from "./interfaces";
+//
 export class GetAllModel<T> {
-    @param(joi.number().optional())
+
+    @IsNumber()
+    @IsOptional()
     public page: number;
 
-    @param(joi.number().optional())
+    @IsNumber()
+    @IsOptional()
     public pageSize: number;
 
-    @param(joi.object().optional())
+    @Allow()
+    @IsOptional()
     public sort?: CrudItemParams<T>;
 
-    @param(joi.object().optional())
+    @Allow()
+    @IsOptional()
     public filter?: CrudItemParams<T>;
 
-    @param(joi.object().optional())
+    @Allow()
+    @IsOptional()
     public fields?: CrudItemParams<T>;
 
-    @param(joi.array().items(validator.object()).optional())
+    @IsOptional()
+    @IsArray()
     public populate?: any[];
 }
 
 
 export class GetOneModel<T> {
 
-    @param(joi.string().required())
+    @IsString()
     public id: string;
 
-    @param(joi.object().optional())
+    @Allow()
+    @IsOptional()
     public fields?: CrudItemParams<T>;
 
-    @param(joi.array().items(validator.object()).optional())
-    public populate?: any[];
+    @IsOptional()
+    @IsArray()
+    public populate?: number;
 }
 
-export class IsActiveModel {
 
-    @param(joi.boolean().required())
-    public isActive:boolean
+export class ActiveByIdModel {
+
+    @IsBoolean()
+    public isActive: boolean
 
 }
