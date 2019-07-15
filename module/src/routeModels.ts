@@ -31,13 +31,15 @@ export class GetAllModel<T> {
     @IsOptional()
     @IsArray()
     public populate?: any[];
+
+    @IsOptional()
+    @IsBoolean()
+    lean:boolean
 }
 
 
-export class GetOneModel<T> {
+export class GetByIdModel<T> {
 
-    @IsString()
-    public id: string;
 
     @Allow()
     @IsOptional()
@@ -45,7 +47,11 @@ export class GetOneModel<T> {
 
     @IsOptional()
     @IsArray()
-    public populate?: number;
+    public populate?: any[];
+
+    @IsOptional()
+    @IsBoolean()
+    lean:boolean
 }
 
 

@@ -38,24 +38,30 @@ tslib_1.__decorate([
     validator_1.IsArray(),
     tslib_1.__metadata("design:type", Array)
 ], GetAllModel.prototype, "populate", void 0);
-exports.GetAllModel = GetAllModel;
-class GetOneModel {
-}
 tslib_1.__decorate([
-    validator_1.IsString(),
-    tslib_1.__metadata("design:type", String)
-], GetOneModel.prototype, "id", void 0);
+    validator_1.IsOptional(),
+    validator_1.IsBoolean(),
+    tslib_1.__metadata("design:type", Boolean)
+], GetAllModel.prototype, "lean", void 0);
+exports.GetAllModel = GetAllModel;
+class GetByIdModel {
+}
 tslib_1.__decorate([
     validator_1.Allow(),
     validator_1.IsOptional(),
     tslib_1.__metadata("design:type", Object)
-], GetOneModel.prototype, "fields", void 0);
+], GetByIdModel.prototype, "fields", void 0);
 tslib_1.__decorate([
     validator_1.IsOptional(),
     validator_1.IsArray(),
-    tslib_1.__metadata("design:type", Number)
-], GetOneModel.prototype, "populate", void 0);
-exports.GetOneModel = GetOneModel;
+    tslib_1.__metadata("design:type", Array)
+], GetByIdModel.prototype, "populate", void 0);
+tslib_1.__decorate([
+    validator_1.IsOptional(),
+    validator_1.IsBoolean(),
+    tslib_1.__metadata("design:type", Boolean)
+], GetByIdModel.prototype, "lean", void 0);
+exports.GetByIdModel = GetByIdModel;
 class ActiveByIdModel {
 }
 tslib_1.__decorate([

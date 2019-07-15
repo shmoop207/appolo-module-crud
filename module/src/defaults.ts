@@ -1,4 +1,4 @@
-import {GetAllModel, GetOneModel,ActiveByIdModel} from "./routeModels";
+import {GetAllModel, GetByIdModel,ActiveByIdModel} from "./routeModels";
 import {CrudRoutes} from "./interfaces";
 import {Methods} from 'appolo';
 

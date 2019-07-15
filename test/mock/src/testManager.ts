@@ -1,15 +1,15 @@
 import {Controller, define, singleton, IResponse, get} from 'appolo';
 import {IBaseCrudManager} from "../../../module/src/interfaces";
-import {GetOneModel, GetAllModel} from "./../../../module/src/routeModels";
+import {GetByIdModel, GetAllModel} from "./../../../module/src/routeModels";
 import {Test} from "./test";
 
 @define()
 @singleton()
 export class TestManager implements IBaseCrudManager<Test> {
-    async getById(id: string, params: GetOneModel<Test>): Promise<Test> {
+    async getById(id: string, params: GetByIdModel<Test>): Promise<Test> {
         let test = new Test();
 
-        test.id = params.id;
+        test.id = id;
 
         return test;
     }
