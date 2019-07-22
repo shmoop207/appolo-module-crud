@@ -16,7 +16,8 @@ tslib_1.__decorate([
 ], TestController.prototype, "manager", void 0);
 TestController = tslib_1.__decorate([
     appolo_1.controller("/test"),
-    index_1.crud({ model: test_1.Test })
+    index_1.crud({ model: test_1.Test }),
+    appolo_1.roles(["admin"])
 ], TestController);
 exports.TestController = TestController;
 //# sourceMappingURL=testController.js.map

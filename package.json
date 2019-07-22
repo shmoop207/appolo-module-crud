@@ -1,6 +1,6 @@
 {
   "name": "@appolo/crud",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "keywords": [],
   "main": "index.js",
@@ -9,27 +9,26 @@
   },
   "dependencies": {
     "@appolo/logger": "^1.0.3",
-    "@appolo/validator": "^0.0.11",
-    "appolo": "^6.0.83",
-    "bluebird": "^3.5.4",
+    "@appolo/validator": "^0.0.13",
+    "appolo": "^6.0.84",
+    "bluebird": "^3.5.5",
     "body-parser": "^1.19.0",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.27",
     "@types/chai": "^4.1.7",
     "@types/chai-http": "^4.2.0",
-    "@types/joi": "^14.3.3",
-    "@types/lodash": "^4.14.134",
+    "@types/lodash": "^4.14.136",
     "@types/mocha": "^5.2.7",
-    "@types/node": "^12.0.8",
+    "@types/node": "^12.6.8",
     "@types/sinon-chai": "^3.2.2",
-    "@types/supertest": "^2.0.7",
+    "@types/supertest": "^2.0.8",
     "chai": "^4.2.0",
-    "mocha": "^6.1.4",
+    "mocha": "^6.2.0",
     "sinon-chai": "^3.3.0",
     "supertest": "^4.0.2",
-    "typescript": "^3.4.5"
+    "typescript": "^3.5.3"
   },
   "repository": {
     "type": "git",

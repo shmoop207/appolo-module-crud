@@ -29,10 +29,18 @@ let CrudModule = class CrudModule extends appolo_1.Module {
                 interfaces_1.MethodsDic[route.method](route.path)(c.fn.prototype, action);
             });
             if (options.model || options.createModel) {
-                validator_1.validate(options.createModel || options.model, { validatorOptions: { groups: [interfaces_1.ValidateGroups.Create] } })(c.fn.prototype, "create", 0);
+                let routeDef = appolo_1.Util.getRouteDefinition(c.fn, "create"), groups = [interfaces_1.ValidateGroups.Create];
+                if (routeDef && routeDef.definition && routeDef.definition.roles && routeDef.definition.roles.length) {
+                    groups.push(...routeDef.definition.roles);
+                }
+                validator_1.validate(options.createModel || options.model, { validatorOptions: { groups } })(c.fn.prototype, "create", 0);
             }
-            if (this.moduleOptions.model || options.updateModel) {
-                validator_1.validate(options.updateModel || options.model, { validatorOptions: { groups: [interfaces_1.ValidateGroups.Update] } })(c.fn.prototype, "updateById", 1);
+            if (options.model || options.updateModel) {
+                let routeDef = appolo_1.Util.getRouteDefinition(c.fn, "updateById"), groups = [interfaces_1.ValidateGroups.Update];
+                if (routeDef && routeDef.definition && routeDef.definition.roles && routeDef.definition.roles.length) {
+                    groups.push(...routeDef.definition.roles);
+                }
+                validator_1.validate(options.updateModel || options.model, { validatorOptions: { groups } })(c.fn.prototype, "updateById", 1);
             }
             this.parent.addRouteFromClass(c.fn);
         });

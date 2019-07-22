@@ -36,12 +36,27 @@ export class CrudModule extends Module<IOptions> {
                 MethodsDic[route.method](route.path)(c.fn.prototype, action);
             });
 
+
             if (options.model || options.createModel) {
-                validate(options.createModel || options.model, {validatorOptions: {groups: [ValidateGroups.Create]}})(c.fn.prototype, "create", 0);
+                let routeDef = Util.getRouteDefinition(c.fn, "create"),
+                    groups: string[] = [ValidateGroups.Create];
+
+                if (routeDef && routeDef.definition && routeDef.definition.roles && routeDef.definition.roles.length) {
+                    groups.push(...routeDef.definition.roles)
+                }
+
+                validate(options.createModel || options.model, {validatorOptions: {groups}})(c.fn.prototype, "create", 0);
             }
 
-            if (this.moduleOptions.model || options.updateModel) {
-                validate(options.updateModel || options.model, {validatorOptions: {groups: [ValidateGroups.Update]}})(c.fn.prototype, "updateById", 1);
+            if (options.model || options.updateModel) {
+                let routeDef = Util.getRouteDefinition(c.fn, "updateById"),
+                    groups: string[] = [ValidateGroups.Update];
+
+                if (routeDef && routeDef.definition && routeDef.definition.roles && routeDef.definition.roles.length) {
+                    groups.push(...routeDef.definition.roles)
+                }
+
+                validate(options.updateModel || options.model, {validatorOptions: {groups}})(c.fn.prototype, "updateById", 1);
             }
 
             (this.parent as App).addRouteFromClass(c.fn as any)
