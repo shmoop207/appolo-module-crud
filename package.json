@@ -1,6 +1,6 @@
 {
   "name": "@appolo/crud",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "",
   "keywords": [],
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@appolo/logger": "^1.0.3",
-    "@appolo/validator": "^0.0.13",
+    "@appolo/validator": "^0.0.14",
     "appolo": "^6.0.84",
     "bluebird": "^3.5.5",
     "body-parser": "^1.19.0",
