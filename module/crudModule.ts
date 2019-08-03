@@ -56,7 +56,12 @@ export class CrudModule extends Module<IOptions> {
                     groups.push(...routeDef.definition.roles)
                 }
 
-                validate(options.updateModel || options.model, {validatorOptions: {groups}})(c.fn.prototype, "updateById", 1);
+                validate(options.updateModel || options.model, {
+                    validatorOptions: {
+                        groups,
+                        skipMissingProperties: true
+                    }
+                })(c.fn.prototype, "updateById", 1);
             }
 
             (this.parent as App).addRouteFromClass(c.fn as any)

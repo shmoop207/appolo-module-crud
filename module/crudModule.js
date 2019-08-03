@@ -40,7 +40,12 @@ let CrudModule = class CrudModule extends appolo_1.Module {
                 if (routeDef && routeDef.definition && routeDef.definition.roles && routeDef.definition.roles.length) {
                     groups.push(...routeDef.definition.roles);
                 }
-                validator_1.validate(options.updateModel || options.model, { validatorOptions: { groups } })(c.fn.prototype, "updateById", 1);
+                validator_1.validate(options.updateModel || options.model, {
+                    validatorOptions: {
+                        groups,
+                        skipMissingProperties: true
+                    }
+                })(c.fn.prototype, "updateById", 1);
             }
             this.parent.addRouteFromClass(c.fn);
         });
