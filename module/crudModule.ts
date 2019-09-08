@@ -20,7 +20,7 @@ export class CrudModule extends Module<IOptions> {
         return [];
     }
 
-    protected beforeInitialize() {
+    public beforeInitialize() {
         let controllers = Util.findAllReflectData<{ options?: CrudOptions }>(CrudSymbol, this.parent.exported);
 
         _.forEach(controllers, c => {

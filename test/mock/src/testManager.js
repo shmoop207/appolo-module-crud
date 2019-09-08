@@ -13,10 +13,10 @@ let TestManager = class TestManager {
         return { count: 1, results: [{ "id": "1", name: "aa" }] };
     }
     async create(data) {
-        return Object.assign({}, data, { id: "1" });
+        return Object.assign(Object.assign({}, data), { id: "1" });
     }
     async updateById(id, data) {
-        return Object.assign({}, data, { id: id });
+        return Object.assign(Object.assign({}, data), { id: id });
     }
     async deleteById(id) {
     }
