@@ -1,4 +1,4 @@
-import {IsString, MinLength, IsNumber, IsOptional, IsArray, Allow, IsBoolean} from "@appolo/validator";
+import {IsString, MinLength, IsNumber, IsOptional, IsArray, Allow, IsBoolean, IsObject} from "@appolo/validator";
 import {CrudItemParams} from "./interfaces";
 
 
@@ -16,42 +16,43 @@ export class GetAllModel<T> {
     @IsOptional()
     public pageSize: number;
 
-    @Allow()
     @IsOptional()
+    @IsObject()
     public sort?: CrudItemParams<T>;
 
-    @Allow()
     @IsOptional()
+    @IsObject()
     public filter?: CrudItemParams<T>;
 
-    @Allow()
     @IsOptional()
+    @IsObject()
     public fields?: CrudItemParams<T>;
 
     @IsOptional()
     @IsArray()
+    @IsObject({each: true})
     public populate?: any[];
 
     @IsOptional()
     @IsBoolean()
-    lean:boolean
+    lean: boolean
 }
 
 
 export class GetByIdModel<T> {
 
-
-    @Allow()
     @IsOptional()
+    @IsObject()
     public fields?: CrudItemParams<T>;
 
     @IsOptional()
     @IsArray()
+    @IsObject({each: true})
     public populate?: any[];
 
     @IsOptional()
     @IsBoolean()
-    lean:boolean
+    lean: boolean
 }
 
 

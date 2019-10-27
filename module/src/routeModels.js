@@ -19,23 +19,24 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", Number)
 ], GetAllModel.prototype, "pageSize", void 0);
 tslib_1.__decorate([
-    validator_1.Allow(),
     validator_1.IsOptional(),
+    validator_1.IsObject(),
     tslib_1.__metadata("design:type", Object)
 ], GetAllModel.prototype, "sort", void 0);
 tslib_1.__decorate([
-    validator_1.Allow(),
     validator_1.IsOptional(),
+    validator_1.IsObject(),
     tslib_1.__metadata("design:type", Object)
 ], GetAllModel.prototype, "filter", void 0);
 tslib_1.__decorate([
-    validator_1.Allow(),
     validator_1.IsOptional(),
+    validator_1.IsObject(),
     tslib_1.__metadata("design:type", Object)
 ], GetAllModel.prototype, "fields", void 0);
 tslib_1.__decorate([
     validator_1.IsOptional(),
     validator_1.IsArray(),
+    validator_1.IsObject({ each: true }),
     tslib_1.__metadata("design:type", Array)
 ], GetAllModel.prototype, "populate", void 0);
 tslib_1.__decorate([
@@ -47,13 +48,14 @@ exports.GetAllModel = GetAllModel;
 class GetByIdModel {
 }
 tslib_1.__decorate([
-    validator_1.Allow(),
     validator_1.IsOptional(),
+    validator_1.IsObject(),
     tslib_1.__metadata("design:type", Object)
 ], GetByIdModel.prototype, "fields", void 0);
 tslib_1.__decorate([
     validator_1.IsOptional(),
     validator_1.IsArray(),
+    validator_1.IsObject({ each: true }),
     tslib_1.__metadata("design:type", Array)
 ], GetByIdModel.prototype, "populate", void 0);
 tslib_1.__decorate([
