@@ -13,9 +13,9 @@ chai.use(chaiHttp);
 let app: App;
 describe("crud module Spec", function () {
 
-    beforeEach(async () => {
+    before(async () => {
 
-        app = createApp({ environment: "production", port: 8181, root: process.cwd() + '/test/mock/'});
+        app = createApp({environment: "production", port: 8181, root: process.cwd() + '/test/mock/'});
 
         await app.module(new CrudModule());
         await app.module(new ValidationModule());
@@ -24,9 +24,9 @@ describe("crud module Spec", function () {
 
     });
 
-    afterEach(async () => {
-        await app.reset();
-    });
+    // afterEach(async () => {
+    //     await app.reset();
+    // });
 
     it("should get test by id", async () => {
 
@@ -42,9 +42,19 @@ describe("crud module Spec", function () {
     it("should not get test by id invalid params", async () => {
 
         let res = await request(app.handle)
-            .get('/test/1234').query({"populate":"aaa"});
+            .get('/test/1234').query({"populate[]": {"aaa": 1}});
+
+        res.should.to.have.status(200);
+
+        res = await request(app.handle)
+            .get('/test/1234').query({"populate": {"aaa": 1}});
 
         res.should.to.have.status(400);
+
+        let res2 = await request(app.handle)
+            .get('/test').query({"populate[]": [{path: "aaa"}]});
+
+        res2.should.to.have.status(200);
 
     });
 
@@ -60,7 +70,7 @@ describe("crud module Spec", function () {
     it("should create valid", async () => {
 
         let res = await request(app.handle)
-            .post('/test').send({name:"11"});
+            .post('/test').send({name: "11"});
 
         res.should.to.have.status(200);
         res.body.name.should.be.eq("11");

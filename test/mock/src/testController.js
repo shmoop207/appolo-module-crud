@@ -6,6 +6,12 @@ const index_1 = require("../../../index");
 const test_1 = require("./test");
 const baseController_1 = require("./baseController");
 let TestController = class TestController extends baseController_1.BaseController {
+    // public async getAll( model: GetAllModel<any>,...rest:any[]):Promise<{ count: number, results: any[] }> {
+    //
+    //     const data = await this.manager.getAll(model);
+    //
+    //     return data;
+    // }
     async getById(id, model) {
         return super.getById(id, model);
     }

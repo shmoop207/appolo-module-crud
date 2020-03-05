@@ -1,4 +1,4 @@
-import {IsString, MinLength, IsNumber, IsOptional, IsArray, Allow, IsBoolean, IsObject} from "@appolo/validator";
+import {IsString, MinLength, IsNumber, IsOptional, IsArray, Allow, IsBoolean, IsObject, Type} from "@appolo/validator";
 import {CrudItemParams} from "./interfaces";
 
 
@@ -30,6 +30,7 @@ export class GetAllModel<T> {
 
     @IsOptional()
     @IsArray()
+    @Type(() => Object)
     @IsObject({each: true})
     public populate?: any[];
 
@@ -47,6 +48,7 @@ export class GetByIdModel<T> {
 
     @IsOptional()
     @IsArray()
+    @Type(() => Object)
     @IsObject({each: true})
     public populate?: any[];
 

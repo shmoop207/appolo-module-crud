@@ -36,6 +36,7 @@ tslib_1.__decorate([
 tslib_1.__decorate([
     validator_1.IsOptional(),
     validator_1.IsArray(),
+    validator_1.Type(() => Object),
     validator_1.IsObject({ each: true }),
     tslib_1.__metadata("design:type", Array)
 ], GetAllModel.prototype, "populate", void 0);
@@ -55,6 +56,7 @@ tslib_1.__decorate([
 tslib_1.__decorate([
     validator_1.IsOptional(),
     validator_1.IsArray(),
+    validator_1.Type(() => Object),
     validator_1.IsObject({ each: true }),
     tslib_1.__metadata("design:type", Array)
 ], GetByIdModel.prototype, "populate", void 0);
