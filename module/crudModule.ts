@@ -12,6 +12,10 @@ export class CrudModule extends Module<IOptions> {
         super(options)
     }
 
+    public static for(options?: IOptions):CrudModule{
+        return new CrudModule(options)
+    }
+
     protected readonly Defaults: Partial<IOptions> = {
         routes: CrudRoutesDefaults
     };
@@ -45,7 +49,7 @@ export class CrudModule extends Module<IOptions> {
                     groups.push(...routeDef.definition.roles)
                 }
 
-                validate(options.createModel || options.model, {validatorOptions: {groups}})(c.fn.prototype, "create", 0);
+                validate(options.createModel || options.model, {groups})(c.fn.prototype, "create", 0);
             }
 
             if (options.model || options.updateModel) {
@@ -57,10 +61,7 @@ export class CrudModule extends Module<IOptions> {
                 }
 
                 validate(options.updateModel || options.model, {
-                    validatorOptions: {
-                        groups,
-                        skipMissingProperties: true
-                    }
+                    groups,
                 })(c.fn.prototype, "updateById", 1);
             }
 

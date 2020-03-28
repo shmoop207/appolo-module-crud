@@ -15,11 +15,11 @@ export class TestManager implements IBaseCrudManager<Test> {
     }
 
     async getAll(params: GetAllModel<Test>): Promise<{ count: number, results: Test[] }> {
-        return {count: 1, results: [{"id": "1", name: "aa"}]}
+        return {count: 1, results: [{"id": "1", name: "aa",isActive:true}]}
     }
 
     async create(data: Test): Promise<Test> {
-        return {...data, ...{id: "1"}}
+        return {...data}
     }
 
     async updateById(id: string, data: Test): Promise<Test> {

@@ -6,10 +6,10 @@ import {ValidationModule} from '@appolo/validator';
 
 export = async function (app: App) {
 
-    if(!app.injector.hasDefinition("logger")){
+    if (!app.injector.hasDefinition("logger")) {
         await app.module(LoggerModule)
     }
 
-    await app.module(new ValidationModule());
+    await app.module(new ValidationModule({convert: true, stripUnknown: true}));
 
 }

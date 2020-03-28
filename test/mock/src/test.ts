@@ -1,12 +1,14 @@
-import {IsString, IsOptional} from "@appolo/validator"
+import {string, boolean,schema} from "appolo-validator"
 import {ValidateGroups} from "../../../module/src/interfaces";
 
 export class Test {
 
-    @IsString()
-    @IsOptional({groups:[ValidateGroups.Create]})
+    @string().optional().groups([ValidateGroups.Update])
     id: string;
 
-    @IsString()
-    name: string
+    @string().optional()
+    name: string;
+
+    @boolean().required().groups([ValidateGroups.Update])
+    isActive: boolean;
 }

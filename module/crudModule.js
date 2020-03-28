@@ -1,4 +1,5 @@
 "use strict";
+var CrudModule_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const appolo_1 = require("appolo");
@@ -7,12 +8,15 @@ const interfaces_1 = require("./src/interfaces");
 const defaults_1 = require("./src/defaults");
 const decorator_1 = require("./src/decorator");
 const validator_1 = require("@appolo/validator");
-let CrudModule = class CrudModule extends appolo_1.Module {
+let CrudModule = CrudModule_1 = class CrudModule extends appolo_1.Module {
     constructor(options) {
         super(options);
         this.Defaults = {
             routes: defaults_1.CrudRoutesDefaults
         };
+    }
+    static for(options) {
+        return new CrudModule_1(options);
     }
     get exports() {
         return [];
@@ -33,7 +37,7 @@ let CrudModule = class CrudModule extends appolo_1.Module {
                 if (routeDef && routeDef.definition && routeDef.definition.roles && routeDef.definition.roles.length) {
                     groups.push(...routeDef.definition.roles);
                 }
-                validator_1.validate(options.createModel || options.model, { validatorOptions: { groups } })(c.fn.prototype, "create", 0);
+                validator_1.validate(options.createModel || options.model, { groups })(c.fn.prototype, "create", 0);
             }
             if (options.model || options.updateModel) {
                 let routeDef = appolo_1.Util.getRouteDefinition(c.fn, "updateById"), groups = [interfaces_1.ValidateGroups.Update];
@@ -41,17 +45,14 @@ let CrudModule = class CrudModule extends appolo_1.Module {
                     groups.push(...routeDef.definition.roles);
                 }
                 validator_1.validate(options.updateModel || options.model, {
-                    validatorOptions: {
-                        groups,
-                        skipMissingProperties: true
-                    }
+                    groups,
                 })(c.fn.prototype, "updateById", 1);
             }
             this.parent.addRouteFromClass(c.fn);
         });
     }
 };
-CrudModule = tslib_1.__decorate([
+CrudModule = CrudModule_1 = tslib_1.__decorate([
     appolo_1.module(),
     tslib_1.__metadata("design:paramtypes", [Object])
 ], CrudModule);

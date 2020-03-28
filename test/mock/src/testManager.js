@@ -10,10 +10,10 @@ let TestManager = class TestManager {
         return test;
     }
     async getAll(params) {
-        return { count: 1, results: [{ "id": "1", name: "aa" }] };
+        return { count: 1, results: [{ "id": "1", name: "aa", isActive: true }] };
     }
     async create(data) {
-        return Object.assign(Object.assign({}, data), { id: "1" });
+        return Object.assign({}, data);
     }
     async updateById(id, data) {
         return Object.assign(Object.assign({}, data), { id: id });
