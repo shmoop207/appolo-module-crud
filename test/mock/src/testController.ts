@@ -1,5 +1,5 @@
 "use strict";
-import {inject, controller, IRequest, IResponse, get,roles} from 'appolo';
+import {controller,roles} from '@appolo/route';
 import {crud, CrudController, GetAllModel, GetByIdModel} from '../../../index';
 import {TestManager} from "./testManager";
 import {Test} from "./test";

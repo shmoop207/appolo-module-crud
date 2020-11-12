@@ -1,4 +1,4 @@
-import {Controller, define, singleton, IResponse, get} from 'appolo';
+import { define, singleton} from '@appolo/inject';
 import {IBaseCrudManager} from "../../../module/src/interfaces";
 import {GetByIdModel, GetAllModel} from "./../../../module/src/routeModels";
 import {Test} from "./test";

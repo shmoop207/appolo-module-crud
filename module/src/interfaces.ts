@@ -1,7 +1,8 @@
-import {IModuleOptions, Methods, IClass, get, post, del, patch} from "appolo";
+import { Methods, get, post, del, patch} from "@appolo/route";
+import { IClass} from "@appolo/engine";
 import {GetAllModel, GetByIdModel} from "./routeModels";
 
-export interface IOptions extends IModuleOptions {
+export interface IOptions {
     routes: CrudRoutes
     model?: IClass
     createModel?: IClass

@@ -1,11 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.CrudController = void 0;
 const tslib_1 = require("tslib");
-const appolo_1 = require("appolo");
+const route_1 = require("@appolo/route");
 const validator_1 = require("@appolo/validator");
 const routeModels_1 = require("./routeModels");
 const bodyParser = require("body-parser");
-class CrudController extends appolo_1.Controller {
+class CrudController extends route_1.Controller {
     async getAll(model, ...rest) {
         const data = await this.manager.getAll(model);
         return data;
@@ -32,39 +33,39 @@ class CrudController extends appolo_1.Controller {
     }
 }
 tslib_1.__decorate([
-    tslib_1.__param(0, validator_1.validate()), tslib_1.__param(0, appolo_1.model()),
+    tslib_1.__param(0, validator_1.validate()), tslib_1.__param(0, route_1.model()),
     tslib_1.__metadata("design:type", Function),
     tslib_1.__metadata("design:paramtypes", [routeModels_1.GetAllModel, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], CrudController.prototype, "getAll", null);
 tslib_1.__decorate([
-    tslib_1.__param(0, appolo_1.params("id")), tslib_1.__param(1, validator_1.validate()), tslib_1.__param(1, appolo_1.model()),
+    tslib_1.__param(0, route_1.params("id")), tslib_1.__param(1, validator_1.validate()), tslib_1.__param(1, route_1.model()),
     tslib_1.__metadata("design:type", Function),
     tslib_1.__metadata("design:paramtypes", [String, routeModels_1.GetByIdModel, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], CrudController.prototype, "getById", null);
 tslib_1.__decorate([
-    appolo_1.middleware(bodyParser.json()),
-    tslib_1.__param(0, appolo_1.model()),
+    route_1.middleware(bodyParser.json()),
+    tslib_1.__param(0, route_1.model()),
     tslib_1.__metadata("design:type", Function),
     tslib_1.__metadata("design:paramtypes", [Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], CrudController.prototype, "create", null);
 tslib_1.__decorate([
-    appolo_1.middleware(bodyParser.json()),
-    tslib_1.__param(0, appolo_1.params("id")), tslib_1.__param(1, appolo_1.model()),
+    route_1.middleware(bodyParser.json()),
+    tslib_1.__param(0, route_1.params("id")), tslib_1.__param(1, route_1.model()),
     tslib_1.__metadata("design:type", Function),
     tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], CrudController.prototype, "updateById", null);
 tslib_1.__decorate([
-    tslib_1.__param(0, appolo_1.params("id")),
+    tslib_1.__param(0, route_1.params("id")),
     tslib_1.__metadata("design:type", Function),
     tslib_1.__metadata("design:paramtypes", [String]),
     tslib_1.__metadata("design:returntype", Promise)
 ], CrudController.prototype, "deleteById", null);
 tslib_1.__decorate([
-    tslib_1.__param(0, appolo_1.params("id")), tslib_1.__param(1, validator_1.validate()), tslib_1.__param(1, appolo_1.model()),
+    tslib_1.__param(0, route_1.params("id")), tslib_1.__param(1, validator_1.validate()), tslib_1.__param(1, route_1.model()),
     tslib_1.__metadata("design:type", Function),
     tslib_1.__metadata("design:paramtypes", [String, routeModels_1.ActiveByIdModel, Object]),
     tslib_1.__metadata("design:returntype", Promise)

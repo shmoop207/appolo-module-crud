@@ -1,5 +1,5 @@
 "use strict";
-import {Controller, inject, IResponse, IRequest, params, abstract, model, query, middleware} from 'appolo';
+import {Controller, IResponse, IRequest, params, abstract, model, query, middleware} from '@appolo/route';
 import {validate} from '@appolo/validator';
 import {ILogger} from "@appolo/logger";
 import {IBaseCrudManager} from "./interfaces";

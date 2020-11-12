@@ -1,4 +1,4 @@
-import {App} from 'appolo';
+import {App} from '@appolo/core';
 
 import {LoggerModule} from '@appolo/logger';
 import {ValidationModule} from '@appolo/validator';
@@ -7,9 +7,9 @@ import {ValidationModule} from '@appolo/validator';
 export = async function (app: App) {
 
     if (!app.injector.hasDefinition("logger")) {
-        await app.module(LoggerModule)
+        await app.module.load(LoggerModule)
     }
 
-    await app.module(new ValidationModule({convert: true, stripUnknown: true}));
+    app.module.use(ValidationModule.for({convert: true, stripUnknown: true}));
 
 }

@@ -1,6 +1,6 @@
 import {GetAllModel, GetByIdModel,ActiveByIdModel} from "./routeModels";
 import {CrudRoutes} from "./interfaces";
-import {Methods} from 'appolo';
+import {Methods} from '@appolo/route';
 
 export let CrudRoutesDefaults = <CrudRoutes>{
     getAll: {

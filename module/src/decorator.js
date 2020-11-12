@@ -1,27 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.crud = exports.CrudSymbol = void 0;
 require("reflect-metadata");
-const appolo_1 = require("appolo");
+const utils_1 = require("@appolo/utils");
 const _ = require("lodash");
 exports.CrudSymbol = "__CrudSymbol__";
 function crud(options) {
     return function (fn) {
-        let crudOptions = appolo_1.Util.getReflectData(exports.CrudSymbol, fn, {});
+        let crudOptions = utils_1.Reflector.getFnMetadata(exports.CrudSymbol, fn, {});
         crudOptions.options = _.defaultsDeep({}, options, crudOptions);
-        // _.forEach(routes, (route, action) => {
-        //     if (!route.active) {
-        //         return;
-        //     }
-        //
-        //     MethodsDic[route.method](route.path)(fn.prototype, action);
-        //
-        //     _.forEach(route.validation, item => validate(item)(fn.prototype, action));
-        //
-        //     _.forEach(route.roles, item => roles(item)(fn.prototype, action));
-        //
-        //     _.forEach(route.middleware, item => middleware(item)(fn.prototype, action));
-        //
-        // });
     };
 }
 exports.crud = crud;

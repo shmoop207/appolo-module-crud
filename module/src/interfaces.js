@@ -1,11 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const appolo_1 = require("appolo");
+exports.ValidateGroups = exports.MethodsDic = void 0;
+const route_1 = require("@appolo/route");
 exports.MethodsDic = {
-    [appolo_1.Methods.GET]: appolo_1.get,
-    [appolo_1.Methods.POST]: appolo_1.post,
-    [appolo_1.Methods.DELETE]: appolo_1.del,
-    [appolo_1.Methods.PATCH]: appolo_1.patch
+    [route_1.Methods.GET]: route_1.get,
+    [route_1.Methods.POST]: route_1.post,
+    [route_1.Methods.DELETE]: route_1.del,
+    [route_1.Methods.PATCH]: route_1.patch
 };
 var ValidateGroups;
 (function (ValidateGroups) {

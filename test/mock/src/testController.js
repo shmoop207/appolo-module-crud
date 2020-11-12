@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.TestController = void 0;
 const tslib_1 = require("tslib");
-const appolo_1 = require("appolo");
+const route_1 = require("@appolo/route");
 const index_1 = require("../../../index");
 const test_1 = require("./test");
 const baseController_1 = require("./baseController");
@@ -17,9 +18,9 @@ let TestController = class TestController extends baseController_1.BaseControlle
     }
 };
 TestController = tslib_1.__decorate([
-    appolo_1.controller("/test"),
+    route_1.controller("/test"),
     index_1.crud({ model: test_1.Test }),
-    appolo_1.roles(["admin"])
+    route_1.roles(["admin"])
 ], TestController);
 exports.TestController = TestController;
 //# sourceMappingURL=testController.js.map

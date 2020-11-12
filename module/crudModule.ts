@@ -1,4 +1,5 @@
-import {module, Module, Util, App, middleware} from 'appolo';
+import {module, Module,  IModuleParams} from '@appolo/engine';
+import {App} from '@appolo/core';
 import _ = require('lodash');
 import {CrudOptions, IOptions, MethodsDic, ValidateGroups} from "./src/interfaces";
 import {CrudRoutesDefaults} from "./src/defaults";
@@ -8,12 +9,9 @@ import {validate} from "@appolo/validator";
 @module()
 export class CrudModule extends Module<IOptions> {
 
-    constructor(options?: IOptions) {
-        super(options)
-    }
 
-    public static for(options?: IOptions):CrudModule{
-        return new CrudModule(options)
+    public static for(options?: IOptions): IModuleParams {
+        return {options, type: CrudModule}
     }
 
     protected readonly Defaults: Partial<IOptions> = {
@@ -24,8 +22,8 @@ export class CrudModule extends Module<IOptions> {
         return [];
     }
 
-    public beforeInitialize() {
-        let controllers = Util.findAllReflectData<{ options?: CrudOptions }>(CrudSymbol, this.parent.exported);
+    public beforeModuleInitialize() {
+        let controllers = this.app.tree.parent.discovery.findAllReflectData<{ options?: CrudOptions }>(CrudSymbol);
 
         _.forEach(controllers, c => {
             let options = c.metaData.options;
@@ -42,7 +40,7 @@ export class CrudModule extends Module<IOptions> {
 
 
             if (options.model || options.createModel) {
-                let routeDef = Util.getRouteDefinition(c.fn, "create"),
+                let routeDef = (this.app.tree.parent as App).discovery.getRoute(c.fn, "create"),
                     groups: string[] = [ValidateGroups.Create];
 
                 if (routeDef && routeDef.definition && routeDef.definition.roles && routeDef.definition.roles.length) {
@@ -53,7 +51,7 @@ export class CrudModule extends Module<IOptions> {
             }
 
             if (options.model || options.updateModel) {
-                let routeDef = Util.getRouteDefinition(c.fn, "updateById"),
+                let routeDef = (this.app.tree.parent as App).discovery.getRoute(c.fn, "updateById"),
                     groups: string[] = [ValidateGroups.Update];
 
                 if (routeDef && routeDef.definition && routeDef.definition.roles && routeDef.definition.roles.length) {
@@ -65,7 +63,7 @@ export class CrudModule extends Module<IOptions> {
                 })(c.fn.prototype, "updateById", 1);
             }
 
-            (this.parent as App).addRouteFromClass(c.fn as any)
+            (this.parent as App).route.createRouteFromClass(c.fn as any)
         })
 
     }
