@@ -1,10 +1,10 @@
-import {module, Module,  IModuleParams} from '@appolo/engine';
+import {module, Module, IModuleParams} from '@appolo/engine';
 import {App} from '@appolo/core';
-import _ = require('lodash');
-import {CrudOptions, IOptions, MethodsDic, ValidateGroups} from "./src/interfaces";
+import {CrudOptions, CrudRoute, CrudRoutes, IOptions, MethodsDic, ValidateGroups} from "./src/interfaces";
 import {CrudRoutesDefaults} from "./src/defaults";
 import {CrudSymbol} from "./src/decorator";
 import {validate} from "@appolo/validator";
+import {Objects, Arrays} from "@appolo/utils";
 
 @module()
 export class CrudModule extends Module<IOptions> {
@@ -25,12 +25,12 @@ export class CrudModule extends Module<IOptions> {
     public beforeModuleInitialize() {
         let controllers = this.app.tree.parent.discovery.findAllReflectData<{ options?: CrudOptions }>(CrudSymbol);
 
-        _.forEach(controllers, c => {
+        controllers.forEach(c => {
             let options = c.metaData.options;
-            let routes = _.defaultsDeep({}, options.routes, this.moduleOptions.routes);
+            let routes = Objects.defaultsDeep<CrudRoutes>({}, options.routes, this.moduleOptions.routes);
 
-
-            _.forEach(routes, (route, action) => {
+            Object.keys(routes).forEach(action => {
+                let route = routes[action] as CrudRoute;
                 if (!route.active) {
                     return;
                 }

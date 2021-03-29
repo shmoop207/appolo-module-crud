@@ -4,11 +4,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CrudModule = void 0;
 const tslib_1 = require("tslib");
 const engine_1 = require("@appolo/engine");
-const _ = require("lodash");
 const interfaces_1 = require("./src/interfaces");
 const defaults_1 = require("./src/defaults");
 const decorator_1 = require("./src/decorator");
 const validator_1 = require("@appolo/validator");
+const utils_1 = require("@appolo/utils");
 let CrudModule = CrudModule_1 = class CrudModule extends engine_1.Module {
     constructor() {
         super(...arguments);
@@ -24,10 +24,11 @@ let CrudModule = CrudModule_1 = class CrudModule extends engine_1.Module {
     }
     beforeModuleInitialize() {
         let controllers = this.app.tree.parent.discovery.findAllReflectData(decorator_1.CrudSymbol);
-        _.forEach(controllers, c => {
+        controllers.forEach(c => {
             let options = c.metaData.options;
-            let routes = _.defaultsDeep({}, options.routes, this.moduleOptions.routes);
-            _.forEach(routes, (route, action) => {
+            let routes = utils_1.Objects.defaultsDeep({}, options.routes, this.moduleOptions.routes);
+            Object.keys(routes).forEach(action => {
+                let route = routes[action];
                 if (!route.active) {
                     return;
                 }
