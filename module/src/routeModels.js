@@ -38,7 +38,7 @@ class IdModel {
 }
 (0, tslib_1.__decorate)([
     (0, validator_1.string)().optional(),
-    (0, tslib_1.__metadata)("design:type", Boolean)
+    (0, tslib_1.__metadata)("design:type", String)
 ], IdModel.prototype, "id", void 0);
 exports.IdModel = IdModel;
 class GetByIdModel {

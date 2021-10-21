@@ -28,7 +28,7 @@ export class GetAllModel<T> {
 
 export class IdModel {
     @string().optional()
-    public id: boolean
+    public id: string
 }
 
 export class GetByIdModel<T> {
