@@ -39,14 +39,14 @@ let CrudModule = CrudModule_1 = class CrudModule extends engine_1.Module {
                 if (routeDef && routeDef.definition && routeDef.definition.roles && routeDef.definition.roles.length) {
                     groups.push(...routeDef.definition.roles);
                 }
-                validator_1.validate(options.createModel || options.model, { groups })(c.fn.prototype, "create", 0);
+                (0, validator_1.validate)(options.createModel || options.model, { groups })(c.fn.prototype, "create", 0);
             }
             if (options.model || options.updateModel) {
                 let routeDef = this.app.tree.parent.discovery.getRoute(c.fn, "updateById"), groups = [interfaces_1.ValidateGroups.Update];
                 if (routeDef && routeDef.definition && routeDef.definition.roles && routeDef.definition.roles.length) {
                     groups.push(...routeDef.definition.roles);
                 }
-                validator_1.validate(options.updateModel || options.model, {
+                (0, validator_1.validate)(options.updateModel || options.model, {
                     groups,
                 })(c.fn.prototype, "updateById", 1);
             }
@@ -54,8 +54,8 @@ let CrudModule = CrudModule_1 = class CrudModule extends engine_1.Module {
         });
     }
 };
-CrudModule = CrudModule_1 = tslib_1.__decorate([
-    engine_1.module()
+CrudModule = CrudModule_1 = (0, tslib_1.__decorate)([
+    (0, engine_1.module)()
 ], CrudModule);
 exports.CrudModule = CrudModule;
 //# sourceMappingURL=crudModule.js.map

@@ -17,10 +17,10 @@ let TestController = class TestController extends baseController_1.BaseControlle
         return super.getById(id, model);
     }
 };
-TestController = tslib_1.__decorate([
-    route_1.controller("/test"),
-    index_1.crud({ model: test_1.Test }),
-    route_1.roles(["admin"])
+TestController = (0, tslib_1.__decorate)([
+    (0, route_1.controller)("/test"),
+    (0, index_1.crud)({ model: test_1.Test }),
+    (0, route_1.roles)(["admin"])
 ], TestController);
 exports.TestController = TestController;
 //# sourceMappingURL=testController.js.map

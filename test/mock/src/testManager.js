@@ -22,9 +22,9 @@ let TestManager = class TestManager {
     async deleteById(id) {
     }
 };
-TestManager = tslib_1.__decorate([
-    inject_1.define(),
-    inject_1.singleton()
+TestManager = (0, tslib_1.__decorate)([
+    (0, inject_1.define)(),
+    (0, inject_1.singleton)()
 ], TestManager);
 exports.TestManager = TestManager;
 //# sourceMappingURL=testManager.js.map

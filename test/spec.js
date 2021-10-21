@@ -14,7 +14,7 @@ chai.use(chaiHttp);
 let app;
 describe("crud module Spec", function () {
     beforeEach(async () => {
-        app = core_1.createApp({
+        app = (0, core_1.createApp)({
             qsParser: qs.parse,
             environment: "production",
             port: 8181,

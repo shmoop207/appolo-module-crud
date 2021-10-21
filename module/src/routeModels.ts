@@ -26,7 +26,7 @@ export class GetAllModel<T> {
     lean: boolean
 }
 
-export class IdModel<T> {
+export class IdModel {
     @string().optional()
     public id: boolean
 }

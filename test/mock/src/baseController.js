@@ -7,9 +7,9 @@ const index_1 = require("../../../index");
 const testManager_1 = require("./testManager");
 class BaseController extends index_1.CrudController {
 }
-tslib_1.__decorate([
-    inject_1.inject(testManager_1.TestManager),
-    tslib_1.__metadata("design:type", testManager_1.TestManager
+(0, tslib_1.__decorate)([
+    (0, inject_1.inject)(testManager_1.TestManager),
+    (0, tslib_1.__metadata)("design:type", testManager_1.TestManager
     // async getById(id: string, model: GetByIdModel<Test>): Promise< Test> {
     //     return super.getById(id, model);
     // }
