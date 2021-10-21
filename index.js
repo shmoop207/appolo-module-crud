@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ValidateGroups = exports.ActiveByIdModel = exports.GetAllModel = exports.CrudModule = exports.CrudController = exports.GetByIdModel = exports.crud = void 0;
+exports.ValidateGroups = exports.ActiveByIdModel = exports.GetAllModel = exports.CrudModule = exports.CrudController = exports.GetByIdModel = exports.crud = exports.IdModel = void 0;
 const decorator_1 = require("./module/src/decorator");
 Object.defineProperty(exports, "crud", { enumerable: true, get: function () { return decorator_1.crud; } });
 const crudModule_1 = require("./module/crudModule");
@@ -13,4 +13,5 @@ const routeModels_1 = require("./module/src/routeModels");
 Object.defineProperty(exports, "GetByIdModel", { enumerable: true, get: function () { return routeModels_1.GetByIdModel; } });
 Object.defineProperty(exports, "GetAllModel", { enumerable: true, get: function () { return routeModels_1.GetAllModel; } });
 Object.defineProperty(exports, "ActiveByIdModel", { enumerable: true, get: function () { return routeModels_1.ActiveByIdModel; } });
+Object.defineProperty(exports, "IdModel", { enumerable: true, get: function () { return routeModels_1.IdModel; } });
 //# sourceMappingURL=index.js.map

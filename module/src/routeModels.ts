@@ -1,4 +1,4 @@
-import {number, object, boolean, array} from "@appolo/validator";
+import {number, object, boolean, array, string} from "@appolo/validator";
 import {CrudItemParams} from "./interfaces";
 
 
@@ -26,6 +26,10 @@ export class GetAllModel<T> {
     lean: boolean
 }
 
+export class IdModel<T> {
+    @string().optional()
+    public id: boolean
+}
 
 export class GetByIdModel<T> {
 

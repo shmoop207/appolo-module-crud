@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ActiveByIdModel = exports.GetByIdModel = exports.GetAllModel = void 0;
+exports.ActiveByIdModel = exports.GetByIdModel = exports.IdModel = exports.GetAllModel = void 0;
 const tslib_1 = require("tslib");
 const validator_1 = require("@appolo/validator");
 class GetAllModel {
@@ -34,6 +34,13 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", Boolean)
 ], GetAllModel.prototype, "lean", void 0);
 exports.GetAllModel = GetAllModel;
+class IdModel {
+}
+tslib_1.__decorate([
+    validator_1.string().optional(),
+    tslib_1.__metadata("design:type", Boolean)
+], IdModel.prototype, "id", void 0);
+exports.IdModel = IdModel;
 class GetByIdModel {
 }
 tslib_1.__decorate([
