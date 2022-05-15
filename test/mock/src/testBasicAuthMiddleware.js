@@ -9,7 +9,7 @@ let TestBasicAuthMiddleware = class TestBasicAuthMiddleware extends basicAuthMid
         return (auth.user == "test" && auth.password == "reporting");
     }
 };
-TestBasicAuthMiddleware = (0, tslib_1.__decorate)([
+TestBasicAuthMiddleware = tslib_1.__decorate([
     (0, inject_1.define)(),
     (0, inject_1.singleton)()
 ], TestBasicAuthMiddleware);

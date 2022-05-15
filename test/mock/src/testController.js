@@ -21,14 +21,14 @@ let TestController = class TestController extends baseController_1.BaseControlle
         return "working";
     }
 };
-(0, tslib_1.__decorate)([
+tslib_1.__decorate([
     (0, route_1.middleware)(testBasicAuthMiddleware_1.TestBasicAuthMiddleware),
     (0, route_1.get)("basic_auth"),
-    (0, tslib_1.__metadata)("design:type", Function),
-    (0, tslib_1.__metadata)("design:paramtypes", []),
-    (0, tslib_1.__metadata)("design:returntype", Promise)
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
 ], TestController.prototype, "basicAuthTest", null);
-TestController = (0, tslib_1.__decorate)([
+TestController = tslib_1.__decorate([
     (0, route_1.controller)("/test"),
     (0, index_1.crud)({ model: test_1.Test }),
     (0, route_1.roles)(["admin"])

@@ -22,7 +22,7 @@ let TestManager = class TestManager {
     async deleteById(id) {
     }
 };
-TestManager = (0, tslib_1.__decorate)([
+TestManager = tslib_1.__decorate([
     (0, inject_1.define)(),
     (0, inject_1.singleton)()
 ], TestManager);

@@ -54,7 +54,7 @@ let CrudModule = CrudModule_1 = class CrudModule extends engine_1.Module {
         });
     }
 };
-CrudModule = CrudModule_1 = (0, tslib_1.__decorate)([
+CrudModule = CrudModule_1 = tslib_1.__decorate([
     (0, engine_1.module)()
 ], CrudModule);
 exports.CrudModule = CrudModule;

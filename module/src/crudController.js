@@ -32,49 +32,49 @@ class CrudController extends route_1.Controller {
         return data;
     }
 }
-(0, tslib_1.__decorate)([
-    (0, tslib_1.__param)(0, (0, validator_1.validate)()),
-    (0, tslib_1.__param)(0, (0, route_1.model)()),
-    (0, tslib_1.__metadata)("design:type", Function),
-    (0, tslib_1.__metadata)("design:paramtypes", [routeModels_1.GetAllModel, Object]),
-    (0, tslib_1.__metadata)("design:returntype", Promise)
+tslib_1.__decorate([
+    tslib_1.__param(0, (0, validator_1.validate)()),
+    tslib_1.__param(0, (0, route_1.model)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [routeModels_1.GetAllModel, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
 ], CrudController.prototype, "getAll", null);
-(0, tslib_1.__decorate)([
-    (0, tslib_1.__param)(0, (0, route_1.params)("id")),
-    (0, tslib_1.__param)(1, (0, validator_1.validate)()),
-    (0, tslib_1.__param)(1, (0, route_1.model)()),
-    (0, tslib_1.__metadata)("design:type", Function),
-    (0, tslib_1.__metadata)("design:paramtypes", [String, routeModels_1.GetByIdModel, Object]),
-    (0, tslib_1.__metadata)("design:returntype", Promise)
+tslib_1.__decorate([
+    tslib_1.__param(0, (0, route_1.params)("id")),
+    tslib_1.__param(1, (0, validator_1.validate)()),
+    tslib_1.__param(1, (0, route_1.model)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, routeModels_1.GetByIdModel, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
 ], CrudController.prototype, "getById", null);
-(0, tslib_1.__decorate)([
+tslib_1.__decorate([
     (0, route_1.middleware)(bodyParser.json()),
-    (0, tslib_1.__param)(0, (0, route_1.model)()),
-    (0, tslib_1.__metadata)("design:type", Function),
-    (0, tslib_1.__metadata)("design:paramtypes", [Object, Object]),
-    (0, tslib_1.__metadata)("design:returntype", Promise)
+    tslib_1.__param(0, (0, route_1.model)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
 ], CrudController.prototype, "create", null);
-(0, tslib_1.__decorate)([
+tslib_1.__decorate([
     (0, route_1.middleware)(bodyParser.json()),
-    (0, tslib_1.__param)(0, (0, route_1.params)("id")),
-    (0, tslib_1.__param)(1, (0, route_1.model)()),
-    (0, tslib_1.__metadata)("design:type", Function),
-    (0, tslib_1.__metadata)("design:paramtypes", [String, Object, Object]),
-    (0, tslib_1.__metadata)("design:returntype", Promise)
+    tslib_1.__param(0, (0, route_1.params)("id")),
+    tslib_1.__param(1, (0, route_1.model)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
 ], CrudController.prototype, "updateById", null);
-(0, tslib_1.__decorate)([
-    (0, tslib_1.__param)(0, (0, route_1.params)("id")),
-    (0, tslib_1.__metadata)("design:type", Function),
-    (0, tslib_1.__metadata)("design:paramtypes", [String]),
-    (0, tslib_1.__metadata)("design:returntype", Promise)
+tslib_1.__decorate([
+    tslib_1.__param(0, (0, route_1.params)("id")),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String]),
+    tslib_1.__metadata("design:returntype", Promise)
 ], CrudController.prototype, "deleteById", null);
-(0, tslib_1.__decorate)([
-    (0, tslib_1.__param)(0, (0, route_1.params)("id")),
-    (0, tslib_1.__param)(1, (0, validator_1.validate)()),
-    (0, tslib_1.__param)(1, (0, route_1.model)()),
-    (0, tslib_1.__metadata)("design:type", Function),
-    (0, tslib_1.__metadata)("design:paramtypes", [String, routeModels_1.ActiveByIdModel, Object]),
-    (0, tslib_1.__metadata)("design:returntype", Promise)
+tslib_1.__decorate([
+    tslib_1.__param(0, (0, route_1.params)("id")),
+    tslib_1.__param(1, (0, validator_1.validate)()),
+    tslib_1.__param(1, (0, route_1.model)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, routeModels_1.ActiveByIdModel, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
 ], CrudController.prototype, "activeById", null);
 exports.CrudController = CrudController;
 //# sourceMappingURL=crudController.js.map
