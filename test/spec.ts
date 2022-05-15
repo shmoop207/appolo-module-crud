@@ -28,8 +28,6 @@ describe("crud module Spec", function () {
 
         await app.launch();
 
-        await Promises.delay(1000000)
-
     });
 
     afterEach(async () => {
@@ -95,7 +93,7 @@ describe("crud module Spec", function () {
         res.should.to.have.status(400);
     })
 
-    it.only("should allow basic auth", async () => {
+    it("should allow basic auth", async () => {
 
         let res = await request(app.route.handle)
             .get('/test/basic_auth').set("Authorization","Basic dGVzdDpyZXBvcnRpbmc=");
