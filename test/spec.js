@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@appolo/core");
+const utils_1 = require("@appolo/utils");
 const validator_1 = require("@appolo/validator");
 const chai = require("chai");
 const qs = require("qs");
@@ -22,6 +23,7 @@ describe("crud module Spec", function () {
         });
         app.module.use(__1.CrudModule).use(validator_1.ValidationModule);
         await app.launch();
+        await utils_1.Promises.delay(1000000);
     });
     afterEach(async () => {
         await app.reset();
@@ -61,6 +63,16 @@ describe("crud module Spec", function () {
         res = await request(app.route.handle)
             .patch('/test/1234').send({ name: "11", isActive: 111 });
         res.should.to.have.status(400);
+    });
+    it.only("should allow basic auth", async () => {
+        let res = await request(app.route.handle)
+            .get('/test/basic_auth').set("Authorization", "Basic dGVzdDpyZXBvcnRpbmc=");
+        res.should.to.have.status(200);
+    });
+    it("should block basic auth", async () => {
+        let res = await request(app.route.handle)
+            .get('/test/basic_auth').set("Authorization", "Basic dGVzdDpyZXBvcnRpbmc2=");
+        res.should.to.have.status(401);
     });
 });
 //# sourceMappingURL=spec.js.map

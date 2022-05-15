@@ -1,4 +1,5 @@
 import {App, createApp} from '@appolo/core'
+import {Promises} from '@appolo/utils'
 import {ValidationModule} from '@appolo/validator'
 import chai = require('chai');
 import qs = require('qs');
@@ -26,6 +27,8 @@ describe("crud module Spec", function () {
         app.module.use(CrudModule).use(ValidationModule);
 
         await app.launch();
+
+        await Promises.delay(1000000)
 
     });
 
@@ -90,6 +93,24 @@ describe("crud module Spec", function () {
             .patch('/test/1234').send({name: "11", isActive: 111});
 
         res.should.to.have.status(400);
+    })
+
+    it.only("should allow basic auth", async () => {
+
+        let res = await request(app.route.handle)
+            .get('/test/basic_auth').set("Authorization","Basic dGVzdDpyZXBvcnRpbmc=");
+
+        res.should.to.have.status(200);
+
+    })
+
+    it("should block basic auth", async () => {
+
+        let res = await request(app.route.handle)
+            .get('/test/basic_auth').set("Authorization","Basic dGVzdDpyZXBvcnRpbmc2=");
+
+        res.should.to.have.status(401);
+
     })
 
 

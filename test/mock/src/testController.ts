@@ -1,10 +1,11 @@
 "use strict";
-import {controller,roles} from '@appolo/route';
+import {controller,roles,middleware,get} from '@appolo/route';
 import {crud, CrudController, GetAllModel, GetByIdModel} from '../../../index';
 import {TestManager} from "./testManager";
 import {Test} from "./test";
 import {BaseController} from "./baseController";
 import {validate} from "@appolo/validator/index";
+import {TestBasicAuthMiddleware} from "./testBasicAuthMiddleware";
 
 
 @controller("/test")
@@ -21,6 +22,12 @@ export class TestController extends BaseController {
 
     async getById(id: string, model: GetByIdModel<Test>): Promise< Test> {
         return super.getById(id, model);
+
+    }
+    @middleware(TestBasicAuthMiddleware)
+    @get("basic_auth")
+    async basicAuthTest(){
+        return "working"
     }
 }
 
