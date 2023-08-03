@@ -1,6 +1,4 @@
-import {define, inject, singleton} from "@appolo/inject";
 import {StaticMiddleware, IResponse, IRequest, NextFn, IRouteOptions, BadRequestError} from "@appolo/route";
-import {Strings, Arrays} from "@appolo/utils";
 
 export abstract class BasicAuthMiddleware extends StaticMiddleware {
 

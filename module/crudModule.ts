@@ -5,7 +5,6 @@ import {CrudRoutesDefaults} from "./src/defaults";
 import {CrudSymbol} from "./src/decorator";
 import {validate} from "@appolo/validator";
 import {Objects, Arrays} from "@appolo/utils";
-import {BasicAuthMiddleware} from "./src/piplines/basicAuthMiddleware";
 
 @module()
 export class CrudModule extends Module<IOptions> {
